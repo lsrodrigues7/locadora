@@ -21,12 +21,16 @@
     <meta charset="utf-8">
     <title>Listagem de Emprestimo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
 </head>
-<body>
-<h3>Listagem de Emprestimo</h3>
+<body  background="fundo.jpg"  >
+<div class="container col-md-10">
+<br>
+<h1> <span class="badge badge-light" >Listagem de Emprestimo</span></h1>
     <input type="button" class="btn btn-danger" value="Inserir" onclick="javascript:location.href='frmInsEmp.php'">
     <br><br>
-    <table class="table table-striped ">
+    <table class="table table-striped table-dark">
 
     <thead class="thead-dark">
         <tr>
@@ -47,8 +51,16 @@
                 <td><?php  echo $linha ["valor"] ?></td>
                 
                
-                <td><input type="button" class="btn btn-outline-warning bt-sm" onclick="javascript: location.href='frmEdtEmp.php?id=' + <?php echo $linha['id_cliente'] ?>" value='Editar'">
-                <input type="button" class="btn btn-outline-primary bt-sm" onclick="javascript: location.href='frmRemEMP.php?id=' + <?php echo $linha['id_cliente'] ?>" value='Excluir'"></td>
+                <td>
+                      <button  class="btn btn btn-outline-primary bt-sm"
+                       onclick="javascript: location.href='frmEdtEmp.php?id=' +
+                      <?php echo $linha['id'] ?>"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                    <td>
+                      <button  class="btn btn-outline-danger bt-sm"
+                       onclick="javascript: location.href='frmRemEmp.php?id=' +
+                      <?php echo $linha['id'] ?>"><i class="fas fa-trash"></i></button>
+                    </td>
                
             </tr>
         <?php }?>

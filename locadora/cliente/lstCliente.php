@@ -17,12 +17,17 @@
     <meta charset="utf-8">
     <title>Listagem de Clientes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
 </head>
-<body>
-<h3>Listagem de Clientes</h3>
-    <input type="button" class="btn btn-danger" value="Inserir" onclick="javascript:location.href='frmInsCliente.html'">
+<body  background="fundo.jpg"  >
+<div class="container col-md-10">
+<br>
+<h1> <span class="badge badge-light" >Listagem de Clientes</span></h1>
+
+    <input type="button" class="btn btn-danger btn-lg" value="Inserir" onclick="javascript:location.href='frmInsCliente.html'">
     <br><br>
-    <table class="table table-striped ">
+    <table class="table table-striped table-dark">
 
     <thead class="thead-dark">
         <tr>
@@ -45,8 +50,16 @@
                 <td><?php  echo utf8_encode($linha ["email"]) ?></td>
                 <td><?php  echo utf8_encode($linha ["endereco"]) ?></td>
                
-                <td><input type="button" class="btn btn-outline-warning bt-sm" onclick="javascript: location.href='frmEdtCliente.php?id=' + <?php echo $linha['id'] ?>" value='Editar'"></td>
-                <td><input type="button" class="btn btn-outline-primary bt-sm" onclick="javascript: location.href='frmRemCliente.php?id=' + <?php echo $linha['id'] ?>" value='Excluir'"></td>
+                <td>
+                      <button  class="btn btn btn-outline-primary bt-sm"
+                       onclick="javascript: location.href='frmEdtCliente.php?id=' +
+                      <?php echo $linha['id'] ?>"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                    <td>
+                      <button  class="btn btn-outline-danger bt-sm"
+                       onclick="javascript: location.href='frmRemCliente.php?id=' +
+                      <?php echo $linha['id'] ?>"><i class="fas fa-trash"></i></button>
+                    </td>
             </tr>
         <?php }?>
     </table>

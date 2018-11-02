@@ -1,0 +1,32 @@
+@charset "UTF-8";
+	p{
+		
+		text-align: center; 
+		text-indent:20pt;
+		font-family:helvetica;
+		 font-size: 1.5em; 
+		 line-height: 1.5em;
+		 color: black;
+	}
+	h1{
+		text-align: center;
+		font-family: helvetica;
+		color: black;
+	}
+	h2 {
+		color:black;
+		text-align: center;
+		font-family: helvetica;
+		font-size: 17pt;
+	}
+	h3 {
+	font-family: helvetica;
+	text-align: center;
+	
+	}	
+	h4 {
+	font-family: helvetica;
+	text-align: center;
+	
+	}
+	

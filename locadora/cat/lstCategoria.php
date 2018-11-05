@@ -28,7 +28,7 @@
 <div class="container col-md-10">
 <br>
 <h1> <span class="badge badge-light" >Listagem de Categorias</span></h1>
-    <input type="button" class="btn btn-danger btn-lg" value="Inserir" onclick="javascript:location.href='frmInsCat.html'">
+    <input type="button" class="btn btn-danger btn-lg" value="Inserir" onclick="javascript:location.href='frmInsCat.php'">
     <br><br>
     <table class="table table-striped table-dark ">
 

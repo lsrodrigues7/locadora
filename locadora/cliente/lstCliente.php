@@ -29,7 +29,7 @@
 <br>
 <h1> <span class="badge badge-light" >Listagem de Clientes</span></h1>
 
-    <input type="button" class="btn btn-danger btn-lg" value="Inserir" onclick="javascript:location.href='frmInsCliente.html'">
+    <input type="button" class="btn btn-danger btn-lg" value="Inserir" onclick="javascript:location.href='frmInsCliente.php'">
     <br><br>
     <table class="table table-striped table-dark">
 

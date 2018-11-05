@@ -16,7 +16,7 @@
         exit;
     }
     $rs = mysql_query("SELECT filme.id,filme.titulo,filme.ano,filme.categoria,categoria.descricao as catNome,  
-    filme.valor,filme.limite_dias FROM filme inner join categoria on filme.categoria=categoria.id;");
+    filme.valor FROM filme inner join categoria on filme.categoria=categoria.id;");
 ?>
 <html>
 <head>
@@ -41,7 +41,6 @@
             <th>Ano</th>
             <th>Categoria</th>
             <th>Valor</th>
-            <th>Limite de dias</th>
             <th></th>
             <th></th>
         </tr>
@@ -53,13 +52,7 @@
                 <td><?php echo $linha ['ano'] ?></td>
                 <td><?php  echo utf8_encode ($linha ['catNome']);?></td>
                 <td>R$: <?php echo number_format($linha ['valor'],2,',','.') ?></td>
-                <td><?php echo $linha ['limite_dias'];
-                    if ($linha ['limite_dias']!=1) {
-                        echo " Dias";
-                    } else {
-                            echo " Dia";
-                        } ?></td>
-                <td>
+                    <td>
                       <button  class="btn btn btn-outline-primary bt-sm"
                        onclick="javascript: location.href='frmEdtFilme.php?id=' +
                       <?php echo $linha['id'] ?>"><i class="fas fa-pencil-alt"></i></button>

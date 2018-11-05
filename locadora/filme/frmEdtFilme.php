@@ -16,7 +16,7 @@
     }
     $id = trim($_REQUEST['id']);
     $rs = mysql_query("SELECT filme.id,filme.titulo,filme.ano,filme.categoria,categoria.descricao as catNome,  
-    filme.valor,filme.limite_dias FROM filme inner join categoria on filme.categoria=categoria.id WHERE filme.id=".$id);
+    filme.valor FROM filme inner join categoria on filme.categoria=categoria.id WHERE filme.id=".$id);
     $edita = mysql_fetch_array($rs);
   
 ?>
@@ -25,22 +25,25 @@
         <meta charset="utf-8">
         <title>Editar Filmes</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="css\edtStyle.css">    
     </head>
-    <body>
-        <div class="container col-md-10">
-            <h3>EDITAR FILMES</h3>
+    <body  background="fundo.jpg"  >
+    <br><br>
+    <div class="container">
+        <div class="box">
+          <h3><span class="badge badge-light">Editar Filme</span></h3>
             <form id="frmEdtFilme" name="frmEdtFilme" method="POST" action="edtFilme.php">
             <div class="form-group">
-                    <label for="lblId">ID: <?php echo $edita['id'] ?> </label>
-                    <input type="hidden" id="txtId" name="txtId" value="<?php echo $edita['id'] ?>">
+                    <label for="lblId"><span class="badge badge-light">ID: </span> <?php echo $edita['id'] ?> </label>
+                    <input type="hidden" id="txtId" name="txtId" class="form-control" value="<?php echo $edita['id'] ?>">
                 </div>
                 <div class="form-group">
-                    <label for="lblTitulo">Titulo: </label>
-                    <input type="text" id="txtTitulo" name="txtTitulo" class="form-control col-md-3" value="<?php echo $edita['titulo'] ?>">
+                    <label for="lblTitulo"><span class="badge badge-light">Titulo: </span> </label>
+                    <input type="text" id="txtTitulo" name="txtTitulo" class="form-control " value="<?php echo $edita['titulo'] ?>">
                 </div>
                 <div class="form-group">
-                    <label for="lblAno">Ano: </label>
-                    <input type="text" id="txtAno" name="txtAno" class="form-control col-md-3" value="<?php echo $edita['ano'] ?>">
+                    <label for="lblAno"><span class="badge badge-light">Ano: </span> </label>
+                    <input type="text" id="txtAno" name="txtAno" class="form-control " value="<?php echo $edita['ano'] ?>">
                 </div>
                 <div class="form-group">
                     <label for="lblCliente"><span class="badge badge-light ">Categoria: </span> </label>
@@ -70,15 +73,12 @@
 
 
                 <div class="form-group">
-                    <label for="lblValor">Valor: </label>
-                    <input type="text" id="txtValor" name="txtValor" class="form-control col-md-3" value="<?php echo $edita['valor'] ?>">
+                    <label for="lblValor"><span class="badge badge-light">Valor: </span> </label>
+                    <input type="text" id="txtValor" name="txtValor" class="form-control " value="<?php echo $edita['valor'] ?>">
                 </div>
-                <div class="form-group">
-                    <label for="lblLimite_dias">Limite de dias: </label>
-                    <input type="text" id="txtLimite_dias" name="txtLimite_dias" class="form-control col-md-3" value="<?php echo $edita['limite_dias'] ?>">
-                </div>
+              
                 <input type="submit" id="btEnviar" name="btEnviar"
-                    class="btn btn-success bt-lg" value="Atualizar">
+                    class="btn btn-primary bt-lg" value="Atualizar">
                 <input type="reset" id="btLimpar" name="btLimpar"
                     class="btn btn-warning bt-lg" value="Limpar">
                 <input type="button" id="btCancelar" name="btCancelar"

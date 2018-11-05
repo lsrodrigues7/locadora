@@ -58,11 +58,7 @@ if (!isset($_SESSION['user']))
                     <input type="text" class="form-control" id="txtValor"
                         name="txtValor" placeholder="Informe o valor do filme">               
                 </div>
-                <div class="form-group">
-                    <label for="lblLimite_dias"><span class="badge badge-light">Limite de Dias: </span>  </label>
-                    <input type="text" class="form-control" id="txtLimite_dias"
-                        name="txtLimite_dias" placeholder="Informe o limite de dias para locação do filme">               
-                </div>
+               
                 <input type="submit" id="btEnviar" name="btEnviar"
                     class="btn btn-primary" value="Gravar">
                 <input type="reset" id="btLimpar" name="btLimpar"

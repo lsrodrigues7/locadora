@@ -28,5 +28,5 @@
     }else{
         echo "Campos em Branco...";
     }
-    //header('location: lstCategoria.php');    
+    header('location: lstCategoria.php');    
 ?>

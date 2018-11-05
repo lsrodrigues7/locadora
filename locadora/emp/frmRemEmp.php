@@ -71,7 +71,8 @@
                 <div class="form-group">
                     <label for="lblValor">
                         <span class="badge badge-light">Valor: </span>
-                        <span class="text-xl font-weight-normal"><?php echo $exclui['valor'] ?></span>
+                        <span class="text-xl font-weight-normal">R$: <?php echo number_format($exclui ['valor'],2,',','.') ?></span>
+                        
                     </label>
                 </div>
                 <input type="submit" id="btConfirmar" name="btConfirmar"

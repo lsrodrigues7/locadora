@@ -20,11 +20,10 @@
     $categoria = trim($_POST['selCat']);
     $ano = trim($_POST['txtAno']);
     $valor = trim($_POST['txtValor']);
-    $limite_dias = trim($_POST['txtLimite_dias']);
-    
+   
 
-    if(!empty($titulo) && !empty($categoria) && !empty($ano) && !empty($valor) && !empty($limite_dias)){
-        $sql = "UPDATE filme SET titulo='$titulo', categoria='$categoria', ano='$ano', valor='$valor', limite_dias='$limite_dias' WHERE filme.id='$id';";
+    if(!empty($titulo) && !empty($categoria) && !empty($ano) && !empty($valor)){
+        $sql = "UPDATE filme SET titulo='$titulo', categoria='$categoria', ano='$ano', valor='$valor' WHERE filme.id='$id';";
         $ins = mysql_query($sql);
         
         if(!$ins){

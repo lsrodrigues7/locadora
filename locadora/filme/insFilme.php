@@ -19,10 +19,10 @@
     $categoria = trim($_POST['selCat']);
     $ano = trim($_POST['txtAno']);
     $valor = trim($_POST['txtValor']);
-    $limite_dias = trim($_POST['txtLimite_dias']);
+    
 
-    if(!empty($titulo) && !empty($categoria) && !empty($ano) && !empty($valor) && !empty($limite_dias)){
-        $sql = "INSERT INTO filme (titulo, categoria, ano, valor, limite_dias) VALUES ('$titulo', '$categoria', '$ano', '$valor', '$limite_dias');";
+    if(!empty($titulo) && !empty($categoria) && !empty($ano) && !empty($valor)){
+        $sql = "INSERT INTO filme (titulo, categoria, ano, valor) VALUES ('$titulo', '$categoria', '$ano', '$valor');";
         
         $ins = mysql_query($sql);
         

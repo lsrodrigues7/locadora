@@ -54,7 +54,7 @@
                 <td><?php  echo utf8_encode($linha ["titulo"]) ?></td>
                 <td><?php  echo $linha ["data_emprestimo"] ?></td>
                 <td><?php  echo $linha ["data_devolucao"] ?></td>
-                <td><?php  echo $linha ["valor"] ?></td>
+                <td>R$: <?php echo number_format($linha ['valor'],2,',','.') ?></td>
                 
                     <td>
                       <button  class="btn btn-outline-danger bt-sm"

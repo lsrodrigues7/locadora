@@ -20,7 +20,7 @@ if (!isset($_SESSION['user']))
 				<li><a href="emp/lstEmprestimo.php"target="framed">Emprestimos</a></li>
 				<li><a href="cat/lstCategoria.php"target="framed">Categorias</a></li>
 				<li><a href="cliente/lstCliente.php"target="framed">Clientes</a></li>
-				<li><a href="direita.html"target="framed">Home</a></li>
+				<li><a href="direita.php"target="framed">Home</a></li>
 				
 			</ul>
 	</nav>

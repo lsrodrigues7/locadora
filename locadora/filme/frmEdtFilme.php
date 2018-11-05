@@ -1,5 +1,9 @@
 <?php
-    //echo "meu php esta funcionando...";
+     
+    session_start();
+    if (!isset($_SESSION['user'])) 
+       Header("Location: ./login.html");
+    
     $conexao = mysql_connect("localhost","root","");
     if(!$conexao){
         echo "erro ao se conectar com o mysql";
@@ -11,7 +15,8 @@
         exit;
     }
     $id = trim($_REQUEST['id']);
-    $rs = mysql_query("SELECT * FROM filme WHERE id=".$id);
+    $rs = mysql_query("SELECT filme.id,filme.titulo,filme.ano,filme.categoria,categoria.descricao as catNome,  
+    filme.valor,filme.limite_dias FROM filme inner join categoria on filme.categoria=categoria.id WHERE filme.id=".$id);
     $edita = mysql_fetch_array($rs);
   
 ?>
@@ -38,28 +43,32 @@
                     <input type="text" id="txtAno" name="txtAno" class="form-control col-md-3" value="<?php echo $edita['ano'] ?>">
                 </div>
                 <div class="form-group">
-                    <label for="lblCategoria">Categoria: </label>
-                    <?php 
-                    $linha = $edita;
-                    if ($linha ['categoria']==1) {
-                        $cat = "Ação";
-                } else if ($linha ['categoria']==2) {
-                        $cat = "Comédia";
-                    }else if ($linha ['categoria']==3){
-                        $cat = "Aventura";
-                    }else if ($linha ['categoria']==4){
-                        $cat = "Terror";
-                    }else if ($linha ['categoria']==5){
-                        $cat = "Romance";
-                    }else if ($linha ['categoria']==6){
-                        $cat = "Ficção Científica";
-                    }else{
-                        $cat= "Categoria não cadastrada!";
-                    }
-
-                    ?>
-                    <input type="text" id="txtCategoria" name="txtCategoria" class="form-control col-md-3" value="<?php echo $cat ?>">
+                    <label for="lblCliente"><span class="badge badge-light ">Categoria: </span> </label>
+                    <select class="form-control" name="selCat" id="selCat">
+                    <?php
+                        $conexao = mysql_connect("localhost","root","");
+                            if(!$conexao){
+                                echo "erro ao se conectar com o mysql";
+                                exit;
+                            }
+                        $banco = mysql_select_db("locadora");
+                            if(!$banco){
+                                echo "erro ao se conectar com o banco locadora";
+                                exit;
+                            }
+                            
+                                //Consulta com a tabela
+                        //Selecione tudo de nomedatabela em ordem crescente pelo nome 
+                    $consulta=mysql_query("SELECT *FROM categoria order by descricao ASC"); 
+                    //Fazendo o looping para exibição de todos registros que contiverem em nomedatabela
+                    while ($dados = mysql_fetch_array($consulta)) {
+                    echo utf8_encode("<option value='".$dados['id']."'>".$dados['descricao']."</option>");
+                        } 
+                        ?>
+                    </select>
                 </div>
+
+
                 <div class="form-group">
                     <label for="lblValor">Valor: </label>
                     <input type="text" id="txtValor" name="txtValor" class="form-control col-md-3" value="<?php echo $edita['valor'] ?>">

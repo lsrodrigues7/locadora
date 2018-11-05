@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (!isset($_SESSION['user'])) 
+   Header("Location: ./login.html");
+?>
+
 <html>
 <head>
 <meta charset= "UTF-8">
@@ -9,9 +15,9 @@
 <!--   divide a tela no caso direita e topo o frameborder some com a linha   -->
 	
 	
-	<frame src="topo2.html" name="topo"> 
+	<frame src="topo2.php" name="topo"> 
 
-    <frame src="direita.html" name="framed" /> 
+    <frame src="direita.php" name="framed" /> 
 
 
 </frameset>

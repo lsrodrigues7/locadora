@@ -1,5 +1,10 @@
 <?php
-    //echo "meu php esta funcionando...";
+    
+    
+    session_start();
+    if (!isset($_SESSION['user'])) 
+       Header("Location: ./login.html");
+   
     $conexao = mysql_connect("localhost","root","");
     if(!$conexao){
         echo "erro ao se conectar com o mysql";
@@ -15,9 +20,9 @@
     
     if(!empty($id)){
         $sql = "DELETE FROM cliente WHERE id='$id';";
-        $ins = mysql_query($sql);
+        $del = mysql_query($sql);
         
-        if(!$ins){
+        if(!$del){
             echo "Erro ao remover...";
         }
     }else{

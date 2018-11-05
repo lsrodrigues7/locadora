@@ -6,31 +6,34 @@ body {
 }
 
 .container {
-    padding: 25px;
-    position: fixed;
+    padding: 10px;
+    position: relative;
+    top: -250px;
+    left: -620px;
 }
 
 .form-login {
     background-color: #EDEDED;
     padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
     border-color:#d2d2d2;
-    border-width: 5px;
+    border-width: 10px;
     box-shadow:0 1px 0 #cfcfcf;
 }
 
-h4 { 
+h3 { 
  border:0 solid #fff; 
  border-bottom-width:1px;
- padding-bottom:10px;
+ padding-bottom:20px;
  text-align: center;
+ font-family: helvetica;
 }
 
 .form-control {
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .wrapper {

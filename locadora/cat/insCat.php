@@ -1,4 +1,9 @@
 <?php
+    
+    session_start();
+    if (!isset($_SESSION['user'])) 
+       Header("Location: ./login.html");
+    
     $conexao = mysql_connect("localhost","root","");
     if(!$conexao){
         echo "erro ao se conectar com o mysql";

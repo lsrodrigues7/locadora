@@ -1,5 +1,9 @@
 <?php
     
+    session_start();
+    if (!isset($_SESSION['user'])) 
+       Header("Location: ./login.html");
+    
     
     $conexao = mysql_connect("localhost","root","");
     if(!$conexao){
@@ -11,7 +15,8 @@
         echo "erro ao se conectar com o banco locadora";
         exit;
     }
-    $rs = mysql_query("SELECT * FROM filme;");
+    $rs = mysql_query("SELECT filme.id,filme.titulo,filme.ano,filme.categoria,categoria.descricao as catNome,  
+    filme.valor,filme.limite_dias FROM filme inner join categoria on filme.categoria=categoria.id;");
 ?>
 <html>
 <head>
@@ -25,7 +30,7 @@
 <div class="container col-md-10">
 <br>
 <h1> <span class="badge badge-light" >Listagem de Filme</span></h1>
-    <input type="button" class="btn btn-danger" value="Inserir" onclick="javascript:location.href='frmInsFilme.html'">
+    <input type="button" class="btn btn-danger" value="Inserir" onclick="javascript:location.href='frmInsFilme.php'">
     <br><br>
     <table class="table table-striped table-dark">
 
@@ -44,24 +49,9 @@
         <?php while ($linha = mysql_fetch_array($rs)) {?>
             <tr>
                 <td><?php echo $linha ['id'] ?></td>
-                <td><?php echo $linha ['titulo'] ?></td>
+                <td><?php echo utf8_encode($linha ['titulo']) ?></td>
                 <td><?php echo $linha ['ano'] ?></td>
-                <td><?php  //echo $linha ['categoria'];
-                if ($linha ['categoria']==1) {
-                    echo " Ação";
-                } else if ($linha ['categoria']==2) {
-                        echo " Comédia";
-                    }else if ($linha ['categoria']==3){
-                        echo " Aventura";
-                    }else if ($linha ['categoria']==4){
-                        echo " Terror";
-                    }else if ($linha ['categoria']==5){
-                        echo " Romance";
-                    }else if ($linha ['categoria']==6){
-                        echo " Ficção Científica";
-                    }else{
-                        echo " Categoria não cadastrada!";
-                    } ?></td>
+                <td><?php  echo utf8_encode ($linha ['catNome']);?></td>
                 <td>R$: <?php echo number_format($linha ['valor'],2,',','.') ?></td>
                 <td><?php echo $linha ['limite_dias'];
                     if ($linha ['limite_dias']!=1) {

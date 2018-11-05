@@ -1,5 +1,10 @@
 <?php
-    //echo "meu php esta funcionando...";
+    
+    session_start();
+    if (!isset($_SESSION['user'])) 
+       Header("Location: ./login.html");
+    
+    
     $conexao = mysql_connect("localhost","root","");
     if(!$conexao){
         echo "erro ao se conectar com o mysql";
@@ -11,17 +16,18 @@
         exit;
     }
     
-    $id = trim($_POST['selEmp']);
-    
+    $id = $_POST['txtId'];
+     
+
     if(!empty($id)){
-        $sql = "DELETE FROM emprestimo WHERE id_filme='$id';";
-        $ins = mysql_query($sql);
+        $sql = "DELETE FROM emprestimo WHERE id_emp='$id';";
+        $del = mysql_query($sql);
         
-        if(!$ins){
+        if(!$del){
             echo "Erro ao remover...";
         }
     }else{
         echo "Campos em Branco...";
     }
-   // header('location: lstEmprestimo.php');    
+    header('location: lstEmprestimo.php');    
 ?>

@@ -24,7 +24,7 @@
 
         $_SESSION['user'] = $user; 
         
-        header('location:home.html'); 
+        header('location:home.php'); 
     }
     else { 
         
